@@ -18,4 +18,14 @@ public class Constants {
 	public static final String USERNAME = "automatedtestselenium123";
 	public static final String PASSWORD = "password";
 	public static final String NOT_MATCHING_PASSWORD = "notMatchingPassword";
+	
+	public static final String LOGIN_USERNAME_XPATH = "//input[@id='identifierId']";
+	public static final String LOGIN_NEXT_BUTTON_CLASS = "CwaK9";
+	public static final String LOGIN_PASSWORD_NEXT_BUTTON_XPATH = "//div[@id='passwordNext']//content[@class='CwaK9']";
+	public static final String LOGIN_PASSWORD_XPATH = "//input[@name='password']";
+	public static final String LOGIN_ERROR_MESSAGE_NO_PASSWORD = "Digite uma senha";
+	public static final String LOGIN_ERROR_MESSAGE_NO_PASSWORD_XPATH = "//div[contains(text(),'Digite uma senha')]";
+	public static final String LOGIN_USERNAME = "automatedtest2018@gmail.com";
+	public static final String LOGIN_PASSWORD = "testPassword";
+	
 }
