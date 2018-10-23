@@ -8,6 +8,12 @@ import com.rdiniz.selenium.gmailTests.constants.Constants;
 public class GmailCreateAccountPage extends BasePage {
 	
 	String createAccountURL = "https://accounts.google.com/SignUp?service=mail&continue=https://mail.google.com/mail/?pc=topnav-about-en";
+	By firstName = By.cssSelector(Constants.FIRST_NAME_CSS_SELECTOR);
+	By lastName = By.cssSelector(Constants.LAST_NAME_CSS_SELECTOR);
+	By userName = By.cssSelector(Constants.USER_NAME_CSS_SELECTOR);
+	By password = By.xpath(Constants.CREATE_ACCOUNT_PASSWORD_XPATH);
+	By confirmPassword = By.xpath(Constants.CREATE_ACCOUNT_CONFIRM_PASSWORD_XPATH);
+	By nextButton = By.className(Constants.CREATE_ACCOUNT_NEXT_BUTTON);
 
 	public GmailCreateAccountPage(WebDriver driver) {
 		super(driver);
@@ -17,44 +23,42 @@ public class GmailCreateAccountPage extends BasePage {
 		driver.get(createAccountURL);
 	}
 	
-	public void enterFirstName(String firstName) {
-		writeText(By.cssSelector(Constants.FIRST_NAME_CSS_SELECTOR), firstName);
+	public void enterFirstName() {
+		writeText(this.firstName, Constants.FIRST_NAME);
 	}
 	
-	public void enterLastName(String lastName) {
-		writeText(By.cssSelector(Constants.LAST_NAME_CSS_SELECTOR), lastName);
+	public void enterLastName() {
+		writeText(this.lastName, Constants.LAST_NAME);
 	}
 	
-	public void enterUserName(String userName) {
-		writeText(By.cssSelector(Constants.USER_NAME_CSS_SELECTOR), userName);
+	public void enterUserName() {
+		writeText(this.userName, Constants.USERNAME);
 	}
 	
 	public void enterPassword(String password) {
-		writeText(By.xpath(Constants.CREATE_ACCOUNT_PASSWORD_XPATH), password);
+		writeText(this.password, password);
 	}
 	
 	public void enterConfirmPassword(String confirmPassword) {
-		writeText(By.xpath(Constants.CREATE_ACCOUNT_CONFIRM_PASSWORD_XPATH), confirmPassword);
+		writeText(this.confirmPassword, confirmPassword);
 	}
 	
 	public void clickOnNextButton() {
-		click(By.className(Constants.CREATE_ACCOUNT_NEXT_BUTTON));
+		click(this.nextButton);
 	}
 
-	public void fillCreateAccountFormWithNoMatchingPassword(String firstName, String lastName,
-										String userName, String password,
-										String confirmPassword) {
-		enterFirstName(firstName);
-		enterLastName(lastName);
-		enterUserName(userName);
+	public void fillCreateAccountFormWithNoMatchingPassword(String password, String confirmPassword) {
+		enterFirstName();
+		enterLastName();
+		enterUserName();
 		enterPassword(password);
 		enterConfirmPassword(confirmPassword);
 		clickOnNextButton();
 	}
 	
-	public void fillCreateAccountFormWithoutLastName(String firstName, String userName, String password) {
-		enterFirstName(firstName);
-		enterUserName(userName);
+	public void fillCreateAccountFormWithoutLastName(String password) {
+		enterFirstName();
+		enterUserName();
 		enterPassword(password);
 		enterConfirmPassword(password);
 		clickOnNextButton();

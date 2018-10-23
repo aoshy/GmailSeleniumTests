@@ -2,6 +2,7 @@ package com.rdiniz.selenium.gmailTests.constants;
 
 public class Constants {
 
+	//create account page related
 	public static final String FIRST_NAME_CSS_SELECTOR = "#firstName";
 	public static final String LAST_NAME_CSS_SELECTOR = "#lastName";
 	public static final String USER_NAME_CSS_SELECTOR = "#username";
@@ -13,12 +14,14 @@ public class Constants {
 	public static final String NO_LAST_NAME_MESSAGE = "Digite o sobrenome";
 	public static final String NO_LAST_NAME_MESSAGE_XPATH = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]";
 	
+	//user fields
 	public static final String FIRST_NAME = "Automated";
 	public static final String LAST_NAME = "Test";
 	public static final String USERNAME = "automatedtestselenium123";
 	public static final String PASSWORD = "password";
 	public static final String NOT_MATCHING_PASSWORD = "notMatchingPassword";
 	
+	//login page related
 	public static final String LOGIN_USERNAME_XPATH = "//input[@id='identifierId']";
 	public static final String LOGIN_NEXT_BUTTON_CLASS = "CwaK9";
 	public static final String LOGIN_PASSWORD_NEXT_BUTTON_XPATH = "//div[@id='passwordNext']//content[@class='CwaK9']";
@@ -27,5 +30,7 @@ public class Constants {
 	public static final String LOGIN_ERROR_MESSAGE_NO_PASSWORD_XPATH = "//div[contains(text(),'Digite uma senha')]";
 	public static final String LOGIN_USERNAME = "automatedtest2018@gmail.com";
 	public static final String LOGIN_PASSWORD = "testPassword";
+	public static final String LOGIN_ERROR_MESSAGE_WRONG_PASSWORD_XPATH = "//div[contains(text(),'Senha incorreta. Tente novamente ou clique em \"Esq')]";
+	public static final String LOGIN_ERROR_MESSAGE_WRONG_PASSWORD = "Senha incorreta. Tente novamente ou clique em \"Esqueceu a senha?\" para redefini-la.";
 	
 }

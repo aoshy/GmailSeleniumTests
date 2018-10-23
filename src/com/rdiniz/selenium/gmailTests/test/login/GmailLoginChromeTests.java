@@ -11,12 +11,23 @@ import com.rdiniz.selenium.gmailTests.constants.Constants;
 
 public class GmailLoginChromeTests extends BaseTestChrome {
 	
+	By errorNoPassword = By.xpath(Constants.LOGIN_ERROR_MESSAGE_NO_PASSWORD_XPATH);
+	By errorWrongPassword = By.xpath(Constants.LOGIN_ERROR_MESSAGE_WRONG_PASSWORD_XPATH);
+	
 	@Test
 	public void testLoginWithoutPassword() {
 		GmailLoginPage loginPage = new GmailLoginPage(driver);
 		loginPage.goToLoginPage();
 		loginPage.fillLoginWithoutPassword();
-		assertTrue(loginPage.containsTxt(By.xpath(Constants.LOGIN_ERROR_MESSAGE_NO_PASSWORD_XPATH), Constants.LOGIN_ERROR_MESSAGE_NO_PASSWORD));
+		assertTrue(loginPage.containsTxt(this.errorNoPassword, Constants.LOGIN_ERROR_MESSAGE_NO_PASSWORD));
+	}
+	
+	@Test
+	public void testSignUpWithWrongPassword() {
+		GmailLoginPage loginPage = new GmailLoginPage(driver);
+		loginPage.goToLoginPage();
+		loginPage.fillLoginWithWrongPassword();
+		assertTrue(loginPage.containsTxt(this.errorWrongPassword, Constants.LOGIN_ERROR_MESSAGE_WRONG_PASSWORD));
 	}
 	
 }
